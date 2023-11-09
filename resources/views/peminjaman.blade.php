@@ -77,8 +77,8 @@
                                               @csrf
                                               @method('PATCH')
                                               <td>
-                                              <button type="submit" name="accept" class="btn btn-success">Accept</button>
-                                              <button type="submit" name="reject" class="btn btn-danger">Reject</button>
+                                              <button type="submit" name="accept" class="btn btn-success"><img src="{{ asset("img/belum.png") }}" alt=""></button>
+                                              <button type="submit" name="reject" class="btn btn-danger"><img src="{{ asset("img/sudah.png") }}" alt=""></button>
                                             </td>
                                           </form>
                                             @endcan
