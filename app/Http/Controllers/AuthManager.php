@@ -40,12 +40,15 @@ class AuthManager extends Controller
 
     public function registrasiPost(Request $request)
     {
+        // dd($request);
         $data = $request->validate([
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email|unique:users',
+            'nis' => 'required',
             'password' => 'required'
         ]);
+        
         $user = User::create($data);
         Auth::login($user);
         return redirect('dashboard');

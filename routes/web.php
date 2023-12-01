@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HistoryPeminjamanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrasiController;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -37,6 +38,8 @@ Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 Route::get('/registrasi', [AuthManager::class, 'registrasi'])->name('registrasi');
 Route::post('/registrasi', [AuthManager::class, 'registrasiPost'])->name('registrasi.post');
 Route::get('/logout', [AuthManager::class, 'Logout'])->name('logout');
+
+Route::resource('/profile', ProfileController::class);
 
 
 Route::get('/admin', [UserController::class, 'getAdmin']);

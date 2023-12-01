@@ -77,11 +77,20 @@ class BukuController extends Controller
      */
     public function update(UpdateBukuRequest $request, Buku $buku)
     {
+        $validatedData = $request->validate([
+            'judul' => 'required',
+            'image' => 'image|file',
+            'pengarang' => 'required',
+            'penerbit' => 'required',
+            'kategori' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
         if($request->file('image')){
-            $validated['image'] = $request->file('image')->store('post-image');
+            $validatedData['image'] = $request->file('image')->store('post-image');
         }
         
-        $buku->update($request->all());
+        $buku->update($validatedData());
         return redirect()->back()->with('success', "Buku {$request->judul} berhasi di-edit");
     }
 

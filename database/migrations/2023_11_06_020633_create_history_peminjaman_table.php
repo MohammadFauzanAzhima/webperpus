@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('history_peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('peminjaman_id');
+            // $table->unsignedBigInteger('peminjaman_id');
             $table->string('namauser');
             $table->string('namabuku');
             $table->string('kategori');
             $table->string('status');
             $table->timestamps();
 
-            $table->foreign('peminjaman_id')->references('id')->on('peminjaman')->onDelete('cascade');
+            $table->foreignId('peminjaman_id');
         });
     }
 
