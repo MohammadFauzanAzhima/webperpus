@@ -19,7 +19,7 @@
             @csrf
             <div class="form-group">
                 <label for="exampleInputPassword1">Nama User</label>
-                <input type="text" class="form-control" name="namauser" value="{{ auth()->user()->username }}">
+                <input type="text" class="form-control" name="namauser" value="{{ auth()->user()->name }}">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Nama Buku</label>
